@@ -1,22 +1,28 @@
-
-// Simple Singleton implementation - Not-thread safe.
+// Non-thread-safe Singleton.
 class Singleton {
-    private static Singleton instance; // Should instance be underlined eg. _instance? should this be set as readonly?
+    private static Singleton _instance; // Underscore to mark it as private to class
 
-    // Is it necessary to declare an empty instance property?
+    // Empty constructor inserted as best practice, for later overloading from third party eg.?
+    // Empty constructor to enable initialization for static class?
+    // Static vs non-static constructors?
     private PatternA()
     {
     }
 
     public static Singleton GetInstance()
     {
-        if (instance == null)
-            instance = new Singleton();
+        if (_instance == null)
+            _instance = new Singleton();
 
-        return instance;
+        return _instance;
     }
-
 }
+
+// Thread-safe Singleton
+
+
+
+
 
 /*
 Description:
